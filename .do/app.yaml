@@ -5,8 +5,8 @@ services:
     github:
       repo: pjloury/ucsd-alumni-email
       branch: main
-    run_command: ./listmonk --install --idempotent --yes --config '' && ./listmonk --upgrade --yes --config '' && ./listmonk --config ''
-    environment_slug: go
+    dockerfile_path: Dockerfile
+    environment_slug: docker
     instance_count: 1
     instance_size_slug: basic-xxs
     envs:
