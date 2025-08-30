@@ -15,3 +15,10 @@ LISTMONK_db__max_lifetime = "300s"
 TZ = "Etc/UTC"
 LISTMONK_ADMIN_USER = "admin"
 LISTMONK_ADMIN_PASSWORD = "K9#mP2$vL7@nQ4!xR8"
+
+# Database connection (Railway will set these automatically)
+LISTMONK_db__host = "${PGHOST}"
+LISTMONK_db__port = "${PGPORT}"
+LISTMONK_db__user = "${PGUSER}"
+LISTMONK_db__password = "${PGPASSWORD}"
+LISTMONK_db__database = "${PGDATABASE}"

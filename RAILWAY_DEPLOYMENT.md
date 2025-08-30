@@ -27,11 +27,11 @@
 
 ### **Step 4: Set Environment Variables**
 Railway will automatically set these from the database connection:
-- `DATABASE_HOST` - From database connection
-- `DATABASE_PORT` - From database connection  
-- `DATABASE_USER` - From database connection
-- `DATABASE_PASSWORD` - From database connection
-- `DATABASE_NAME` - From database connection
+- `PGHOST` - From database connection
+- `PGPORT` - From database connection  
+- `PGUSER` - From database connection
+- `PGPASSWORD` - From database connection
+- `PGDATABASE` - From database connection
 - `PORT` - Railway sets this automatically
 
 **Note**: The app will use these to set the `LISTMONK_db_*` variables automatically.
