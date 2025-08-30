@@ -35,7 +35,7 @@ services:
       - key: LISTMONK_ADMIN_USER
         value: admin
       - key: LISTMONK_ADMIN_PASSWORD
-        value: your_secure_password_here
+        value: UcsdAlumni2024!@#
 
 databases:
   - name: db
