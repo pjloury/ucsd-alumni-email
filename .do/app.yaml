@@ -3,7 +3,7 @@ services:
   - name: listmonk-app
     source_dir: /
     github:
-      repo: YOUR_GITHUB_USERNAME/ListMonk
+      repo: pjloury/ucsd-alumni-email
       branch: main
     run_command: ./listmonk --install --idempotent --yes --config '' && ./listmonk --upgrade --yes --config '' && ./listmonk --config ''
     environment_slug: go

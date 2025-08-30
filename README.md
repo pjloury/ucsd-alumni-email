@@ -24,7 +24,7 @@ open http://localhost:9000
    - Make sure the repository is public or you have a paid DigitalOcean plan
 
 2. **Update the configuration**
-   - Edit `app.yaml` and replace `YOUR_GITHUB_USERNAME` with your actual GitHub username
+   - Edit `.do/app.yaml` and replace `pjloury/ucsd-alumni-email` with your actual GitHub username/repository
    - Change `your_secure_password_here` to a strong password
 
 3. **Deploy to DigitalOcean**
