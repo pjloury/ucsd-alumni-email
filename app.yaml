@@ -1,0 +1,44 @@
+name: ucsd-alumni-email
+services:
+  - name: listmonk-app
+    source_dir: /
+    github:
+      repo: pjloury/ucsd-alumni-email
+      branch: main
+    dockerfile_path: Dockerfile
+    environment_slug: docker
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    envs:
+      - key: LISTMONK_app__address
+        value: 0.0.0.0:8080
+      - key: LISTMONK_db__user
+        value: ${db.DATABASE_USER}
+      - key: LISTMONK_db__password
+        value: ${db.DATABASE_PASSWORD}
+      - key: LISTMONK_db__database
+        value: ${db.DATABASE_NAME}
+      - key: LISTMONK_db__host
+        value: ${db.DATABASE_HOST}
+      - key: LISTMONK_db__port
+        value: ${db.DATABASE_PORT}
+      - key: LISTMONK_db__ssl_mode
+        value: require
+      - key: LISTMONK_db__max_open
+        value: 25
+      - key: LISTMONK_db__max_idle
+        value: 25
+      - key: LISTMONK_db__max_lifetime
+        value: 300s
+      - key: TZ
+        value: Etc/UTC
+      - key: LISTMONK_ADMIN_USER
+        value: admin
+      - key: LISTMONK_ADMIN_PASSWORD
+        value: your_secure_password_here
+
+databases:
+  - name: db
+    engine: PG
+    version: "15"
+    size: db-s-1vcpu-1gb
