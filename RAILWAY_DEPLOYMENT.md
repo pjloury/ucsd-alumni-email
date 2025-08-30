@@ -23,14 +23,18 @@
 1. In your project, click "New"
 2. Choose "Database" → "PostgreSQL"
 3. Railway will automatically connect it to your app
+4. **Important**: Wait for the database to fully provision before proceeding
 
 ### **Step 4: Set Environment Variables**
-Railway will automatically set these, but you can verify:
+Railway will automatically set these from the database connection:
+- `DATABASE_HOST` - From database connection
+- `DATABASE_PORT` - From database connection  
+- `DATABASE_USER` - From database connection
+- `DATABASE_PASSWORD` - From database connection
+- `DATABASE_NAME` - From database connection
 - `PORT` - Railway sets this automatically
-- `LISTMONK_db__host` - From database connection
-- `LISTMONK_db__user` - From database connection
-- `LISTMONK_db__password` - From database connection
-- `LISTMONK_db__database` - From database connection
+
+**Note**: The app will use these to set the `LISTMONK_db_*` variables automatically.
 
 ### **Step 5: Access Your App**
 - Railway will give you a URL like: `https://your-app-name.railway.app`
@@ -82,3 +86,27 @@ Railway will automatically set these, but you can verify:
 5. Access your app!
 
 **Total cost: $5/month instead of $24/month!** 🎉
+
+## 🚨 **Troubleshooting Common Issues:**
+
+### **Database Connection Error: "dial tcp: lookup port=0: no such host"**
+**Cause**: Database environment variables not properly set
+**Solution**: 
+1. Make sure you've added a PostgreSQL database to your project
+2. Wait for the database to fully provision (green status)
+3. Verify the database is connected to your app
+4. Redeploy the app after database is ready
+
+### **App Won't Start**
+**Cause**: Missing environment variables
+**Solution**:
+1. Check Railway dashboard for environment variables
+2. Ensure database connection variables are present
+3. Verify `PORT` variable is set by Railway
+
+### **Health Check Fails**
+**Cause**: App not responding on correct port
+**Solution**:
+1. Check app logs in Railway dashboard
+2. Verify `LISTMONK_app__address` is set to `0.0.0.0:${PORT}`
+3. Ensure database is accessible from app
