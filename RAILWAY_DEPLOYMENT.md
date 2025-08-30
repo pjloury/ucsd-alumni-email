@@ -26,15 +26,25 @@
 4. **Important**: Wait for the database to fully provision before proceeding
 
 ### **Step 4: Set Environment Variables**
-Railway will automatically set these from the database connection:
-- `PGHOST` - From database connection
-- `PGPORT` - From database connection  
-- `PGUSER` - From database connection
-- `PGPASSWORD` - From database connection
-- `PGDATABASE` - From database connection
-- `PORT` - Railway sets this automatically
+After adding the database, you need to manually set these in Railway:
 
-**Note**: The app will use these to set the `LISTMONK_db_*` variables automatically.
+1. **Go to your app service** in Railway
+2. **Click "Variables"** tab
+3. **Add these environment variables**:
+
+```
+LISTMONK_app__address=0.0.0.0:${PORT}
+LISTMONK_db__host=${PGHOST}
+LISTMONK_db__port=${PGPORT}
+LISTMONK_db__user=${PGUSER}
+LISTMONK_db__password=${PGPASSWORD}
+LISTMONK_db__database=${PGDATABASE}
+LISTMONK_db__ssl_mode=require
+LISTMONK_ADMIN_USER=admin
+LISTMONK_ADMIN_PASSWORD=K9#mP2$vL7@nQ4!xR8
+```
+
+**Note**: Railway will automatically provide `PGHOST`, `PGPORT`, etc. when you add the database.
 
 ### **Step 5: Access Your App**
 - Railway will give you a URL like: `https://your-app-name.railway.app`
